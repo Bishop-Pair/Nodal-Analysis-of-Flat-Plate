@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib.animation import FuncAnimation
 #All units are taken to be in SI units
-#Inputted Geomertric Properties
+#Inputted Geometric Properties
 plate_length = 0.1524
 cyl_rad = 0.01905
 
@@ -11,7 +11,7 @@ cyl_rad = 0.01905
 #Aluminium Values
 #k_mat = 236 * (10**-3 * 3)     #Thermal Conductivity
 #rho = 2710 * (10**-3 * 3)**3   #Density
-#cp = 0.903 * 10**3             #
+#cp = 0.903 * 10**3             #specific heat
 #eps = 0.04                     #Emissivity
 
 #Copper Values
@@ -36,7 +36,7 @@ Mesh_Size = 50      #The total number of elements will be the square of the Mesh
 #Time
 time_seconds = 5     #The number of seconds that the simulation will calculate for
 
-#Making sure values are propornal if delta_x = 1
+#Making sure values are proportional if delta_x = 1
 conv_factor = Mesh_Size / plate_length   #Changes the values of any parameter with length such that delta_x = 1
 k_mat = k_mat / conv_factor
 rho = rho / conv_factor**3
@@ -47,7 +47,7 @@ max_iter_time = int(time_seconds / delta_t)    #The number of iterations
 gamma = (alpha * delta_t) / (delta_x ** 2)    #Intermediate Variable
 
 #Convection and Radiation Analysis
-#Funtion defining the free convection coeffcient as a funtion of Temperature
+#Function defining the free convection coeffcient as a Function of Temperature
 def h(T):
     if T < 40:
         return(6)
@@ -57,7 +57,7 @@ def h(T):
         return(8)
     else:
         return(10)
-#Funtion defining the h equivalent for radiation as a funtion of Temperature
+#Function defining the h equivalent for radiation as a Function of Temperature
 def h_rad(T,T_inf):
     if T == T_inf:
         return(0)
